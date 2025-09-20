@@ -1,15 +1,27 @@
 package com.jasmine.student_app;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String course;
+    private int age;
 
+    public Student() {
+    }
 
-    public Student(int id, String name, String course) {
+    public Student(int id, String name, int age) {
         this.id = id;
         this.name = name;
-        this.course = course;
+        this.age = age;
     }
 
     public int getId() {
@@ -28,12 +40,12 @@ public class Student {
         this.name = name;
     }
 
-    public String getCourse() {
-        return course;
+    public int getAge() {
+        return age;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void SetAge(int age) {
+        this.age = age;
     }
 
     @Override
@@ -41,7 +53,7 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", course='" + course + '\'' +
+                ", course='" + age + '\'' +
                 '}';
     }
 }
